@@ -7,6 +7,14 @@ terraform {
       version = "=2.73.0"
     }
   }
+  
+  backend "azurerm" {
+    resource_group_name   = "tstate"
+    # Paste the storage name generate after creating the blob storgae
+    storage_account_name  = "tstate21365"
+    container_name        = "tstate"
+    key                   = "terraform.tfstate"
+  }
 }
 
 # Configure the Microsoft Azure Provider
